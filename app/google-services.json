@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1086306532806",
+    "project_id": "kotlininstagramapp-c3092",
+    "storage_bucket": "kotlininstagramapp-c3092.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1086306532806:android:ca4760c175b2088f4c06c7",
+        "android_client_info": {
+          "package_name": "com.ismailmesutmujde.instakotlinapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNiI0KXa0NP_vrAYY-5oufBcKzPveHSo8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
