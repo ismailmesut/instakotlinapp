@@ -2,11 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="holo_blue_light">#33B5E5</color>
+    <color name="faint_blue">#8033B5E5</color>
+    <color name="yellow">#FFE500</color>
+    <color name="orange">#FF7700</color>
+
 
     <color name="colorPrimary">#FF000000</color>
     <color name="toolbarColor">#FAFAFAFA</color>
     <color name="colorPrimaryDark">#F0F0F0F0</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#33B5E5</color>
     <color name="toolbarBottomShadow">#DBDBDBDB</color>
 
 </resources>

@@ -8,22 +8,22 @@ import com.ismailmesutmujde.instakotlinapp.utils.BottomNavigationViewHelper
 
 class NewsActivity : AppCompatActivity() {
 
-    private lateinit var bindingNewsActivity : ActivityNewsBinding
+    private lateinit var bindingNA : ActivityNewsBinding
 
     private val ACTIVITY_NO = 3
     private val TAG = "NewsActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bindingNewsActivity = ActivityNewsBinding.inflate(layoutInflater)
-        setContentView(bindingNewsActivity.root)
+        bindingNA = ActivityNewsBinding.inflate(layoutInflater)
+        setContentView(bindingNA.root)
 
         setupNavigationView()
 
     }
     private fun setupNavigationView() {
-        BottomNavigationViewHelper.setupBottomNavigationView(bindingNewsActivity.bottomNavigationView)
-        BottomNavigationViewHelper.setupNavigation(this, bindingNewsActivity.bottomNavigationView)
-        var menu = bindingNewsActivity.bottomNavigationView.menu
+        BottomNavigationViewHelper.setupBottomNavigationView(bindingNA.bottomNavigationView)
+        BottomNavigationViewHelper.setupNavigation(this, bindingNA.bottomNavigationView)
+        var menu = bindingNA.bottomNavigationView.menu
         var menuItem=menu.getItem(ACTIVITY_NO)
         menuItem.setChecked(true)
     }

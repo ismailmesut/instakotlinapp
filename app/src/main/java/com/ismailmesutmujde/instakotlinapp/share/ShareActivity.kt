@@ -8,22 +8,22 @@ import com.ismailmesutmujde.instakotlinapp.utils.BottomNavigationViewHelper
 
 class ShareActivity : AppCompatActivity() {
 
-    private lateinit var bindingShareActivity: ActivityShareBinding
+    private lateinit var bindingShA: ActivityShareBinding
 
     private val ACTIVITY_NO = 2
     private val TAG = "ShareActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bindingShareActivity = ActivityShareBinding.inflate(layoutInflater)
-        setContentView(bindingShareActivity.root)
+        bindingShA = ActivityShareBinding.inflate(layoutInflater)
+        setContentView(bindingShA.root)
 
         setupNavigationView()
     }
 
     private fun setupNavigationView() {
-        BottomNavigationViewHelper.setupBottomNavigationView(bindingShareActivity.bottomNavigationView)
-        BottomNavigationViewHelper.setupNavigation(this, bindingShareActivity.bottomNavigationView)
-        var menu = bindingShareActivity.bottomNavigationView.menu
+        BottomNavigationViewHelper.setupBottomNavigationView(bindingShA.bottomNavigationView)
+        BottomNavigationViewHelper.setupNavigation(this, bindingShA.bottomNavigationView)
+        var menu = bindingShA.bottomNavigationView.menu
         var menuItem=menu.getItem(ACTIVITY_NO)
         menuItem.setChecked(true)
     }

@@ -10,10 +10,11 @@ import com.ismailmesutmujde.instakotlinapp.home.activity.HomeActivity
 import com.ismailmesutmujde.instakotlinapp.search.SearchActivity
 import com.ismailmesutmujde.instakotlinapp.share.ShareActivity
 import com.ismailmesutmujde.instakotlinapp.news.NewsActivity
-import com.ismailmesutmujde.instakotlinapp.profile.ProfileActivity
+import com.ismailmesutmujde.instakotlinapp.profile.activity.ProfileActivity
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.google.android.material.bottomnavigation.BottomNavigationView
 class BottomNavigationViewHelper {
+
     companion object{
         fun setupBottomNavigationView(bottomNavigationViewEx: BottomNavigationViewEx) {
             bottomNavigationViewEx.enableAnimation(false)

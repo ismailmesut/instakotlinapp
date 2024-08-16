@@ -8,23 +8,23 @@ import com.ismailmesutmujde.instakotlinapp.utils.BottomNavigationViewHelper
 
 class SearchActivity : AppCompatActivity() {
 
-    private lateinit var bindingSearchBinding: ActivitySearchBinding
+    private lateinit var bindingSeA: ActivitySearchBinding
 
     private val ACTIVITY_NO = 1
     private val TAG = "SearchActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        bindingSearchBinding = ActivitySearchBinding.inflate(layoutInflater)
-        setContentView(bindingSearchBinding.root)
+        bindingSeA = ActivitySearchBinding.inflate(layoutInflater)
+        setContentView(bindingSeA.root)
 
         setupNavigationView()
     }
 
     private fun setupNavigationView() {
-        BottomNavigationViewHelper.setupBottomNavigationView(bindingSearchBinding.bottomNavigationView)
-        BottomNavigationViewHelper.setupNavigation(this, bindingSearchBinding.bottomNavigationView)
-        var menu = bindingSearchBinding.bottomNavigationView.menu
+        BottomNavigationViewHelper.setupBottomNavigationView(bindingSeA.bottomNavigationView)
+        BottomNavigationViewHelper.setupNavigation(this, bindingSeA.bottomNavigationView)
+        var menu = bindingSeA.bottomNavigationView.menu
         var menuItem=menu.getItem(ACTIVITY_NO)
         menuItem.setChecked(true)
     }

@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -9,6 +10,8 @@ android {
 
     buildFeatures {
         viewBinding = true
+        //noinspection DataBindingWithoutKapt
+        dataBinding = true
     }
 
 
@@ -40,8 +43,10 @@ android {
     }
 }
 
-dependencies {
+val fragment_version = "1.8.2"
 
+
+dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -58,5 +63,23 @@ dependencies {
 
     // circle image view
     implementation ("de.hdodenhof:circleimageview:3.1.0")
+
+    implementation ("androidx.fragment:fragment-ktx:$fragment_version")
+
+    // universal image loader
+    implementation ("com.nostra13.universalimageloader:universal-image-loader:1.9.5")
+
+    // eventbus
+    implementation("org.greenrobot:eventbus:3.3.1")
+
+    // firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.database)
+
+    // firebase ui
+    implementation (libs.firebase.ui.auth)
+
 
 }

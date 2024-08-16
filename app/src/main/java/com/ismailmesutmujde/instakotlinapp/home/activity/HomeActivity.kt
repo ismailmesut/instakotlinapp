@@ -7,30 +7,31 @@ import com.ismailmesutmujde.instakotlinapp.home.fragment.CameraFragment
 import com.ismailmesutmujde.instakotlinapp.home.fragment.HomeFragment
 import com.ismailmesutmujde.instakotlinapp.home.fragment.MessagesFragment
 import com.ismailmesutmujde.instakotlinapp.utils.BottomNavigationViewHelper
+import com.ismailmesutmujde.instakotlinapp.utils.UniversalImageLoader
 import com.ismailmesutmujde.instakotlinapp.utils.adapter.HomePagerAdapter
+import com.nostra13.universalimageloader.core.ImageLoader
 
 class HomeActivity : AppCompatActivity() {
 
-    private lateinit var bindingHomeActivity: ActivityHomeBinding
-
-
+    private lateinit var bindingHA: ActivityHomeBinding
 
     private val ACTIVITY_NO = 0
     private val TAG = "HomeActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        bindingHomeActivity = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(bindingHomeActivity.root)
+        bindingHA = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(bindingHA.root)
 
+        initImageLoader()
         setupNavigationView()
         setupHomeViewPager()
     }
 
     private fun setupNavigationView() {
-        BottomNavigationViewHelper.setupBottomNavigationView(bindingHomeActivity.bottomNavigationView)
-        BottomNavigationViewHelper.setupNavigation(this, bindingHomeActivity.bottomNavigationView)
-        var menu = bindingHomeActivity.bottomNavigationView.menu
+        BottomNavigationViewHelper.setupBottomNavigationView(bindingHA.bottomNavigationView)
+        BottomNavigationViewHelper.setupNavigation(this, bindingHA.bottomNavigationView)
+        var menu = bindingHA.bottomNavigationView.menu
         var menuItem=menu.getItem(ACTIVITY_NO)
         menuItem.setChecked(true)
     }
@@ -42,8 +43,13 @@ class HomeActivity : AppCompatActivity() {
         homePagerAdapter.addFragment(MessagesFragment()) // id=2
 
         // Activity Home da bulunan viewpagera oluşturduğumuz adaptörü atadık
-        bindingHomeActivity.homeViewPager.adapter = homePagerAdapter
+        bindingHA.homeViewPager.adapter = homePagerAdapter
         // ViewPager ın HomeFragment ile başlamasını sağladık
-        bindingHomeActivity.homeViewPager.setCurrentItem(1)
+        bindingHA.homeViewPager.setCurrentItem(1)
+    }
+
+    private fun initImageLoader() {
+        var universalImageLoader =UniversalImageLoader(this)
+        ImageLoader.getInstance().init(universalImageLoader.config)
     }
 }
