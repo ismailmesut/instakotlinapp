@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -24,7 +25,7 @@
             android:name=".profile.activity.ProfileSettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".share.ShareActivity"
+            android:name=".share.activity.ShareActivity"
             android:exported="false" />
         <activity
             android:name=".search.SearchActivity"

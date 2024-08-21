@@ -8,7 +8,7 @@ import android.view.MenuItem
 import com.ismailmesutmujde.instakotlinapp.R
 import com.ismailmesutmujde.instakotlinapp.home.activity.HomeActivity
 import com.ismailmesutmujde.instakotlinapp.search.SearchActivity
-import com.ismailmesutmujde.instakotlinapp.share.ShareActivity
+import com.ismailmesutmujde.instakotlinapp.share.activity.ShareActivity
 import com.ismailmesutmujde.instakotlinapp.news.NewsActivity
 import com.ismailmesutmujde.instakotlinapp.profile.activity.ProfileActivity
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
