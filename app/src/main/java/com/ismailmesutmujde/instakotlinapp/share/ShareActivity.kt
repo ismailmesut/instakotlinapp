@@ -21,9 +21,9 @@ class ShareActivity : AppCompatActivity() {
     }
 
     private fun setupNavigationView() {
-        BottomNavigationViewHelper.setupBottomNavigationView(bindingShA.bottomNavigationView)
-        BottomNavigationViewHelper.setupNavigation(this, bindingShA.bottomNavigationView)
-        var menu = bindingShA.bottomNavigationView.menu
+        BottomNavigationViewHelper.setupBottomNavigationView(bindingShA.bnvShare)
+        BottomNavigationViewHelper.setupNavigation(this, bindingShA.bnvShare)
+        var menu = bindingShA.bnvShare.menu
         var menuItem=menu.getItem(ACTIVITY_NO)
         menuItem.setChecked(true)
     }

@@ -3,11 +3,13 @@
     <style name="Base.Theme.InstaKotlinApp" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-
+        <item name="bottomNavigationStyle">@style/BottomNavigationViewStyle</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
+    <style name="BottomNavigationViewStyle" parent="Widget.MaterialComponents.BottomNavigationView">
+        <!-- Customize BottomNavigationViewEx appearance -->
+    </style>
     <style name="Theme.InstaKotlinApp" parent="Base.Theme.InstaKotlinApp" />
 </resources>

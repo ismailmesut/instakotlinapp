@@ -22,9 +22,9 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private fun setupNavigationView() {
-        BottomNavigationViewHelper.setupBottomNavigationView(bindingSeA.bottomNavigationView)
-        BottomNavigationViewHelper.setupNavigation(this, bindingSeA.bottomNavigationView)
-        var menu = bindingSeA.bottomNavigationView.menu
+        BottomNavigationViewHelper.setupBottomNavigationView(bindingSeA.bnvSearch)
+        BottomNavigationViewHelper.setupNavigation(this, bindingSeA.bnvSearch)
+        var menu = bindingSeA.bnvSearch.menu
         var menuItem=menu.getItem(ACTIVITY_NO)
         menuItem.setChecked(true)
     }

@@ -56,8 +56,9 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+
     // bottom navigation view
-    implementation ("com.github.ittianyu:BottomNavigationViewEx:1.2.4")
+    implementation ("com.github.ittianyu:BottomNavigationViewEx:1.2.0")
 
     implementation (libs.design)
 
@@ -77,6 +78,7 @@ dependencies {
     implementation(libs.firebase.auth)
     implementation(libs.firebase.auth.ktx)
     implementation(libs.firebase.database)
+    implementation(libs.firebase.storage)
 
     // firebase ui
     implementation (libs.firebase.ui.auth)

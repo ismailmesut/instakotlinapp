@@ -15,6 +15,7 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.google.android.material.bottomnavigation.BottomNavigationView
 class BottomNavigationViewHelper {
 
+    //private lateinit var bottomNavigationViewEx: BottomNavigationViewEx
     companion object{
         fun setupBottomNavigationView(bottomNavigationViewEx: BottomNavigationViewEx) {
             bottomNavigationViewEx.enableAnimation(false)

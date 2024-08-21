@@ -2,6 +2,7 @@
 
 package com.ismailmesutmujde.instakotlinapp.login.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
@@ -11,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -18,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.ismailmesutmujde.instakotlinapp.R
 import com.ismailmesutmujde.instakotlinapp.databinding.ActivityRegisterBinding
+import com.ismailmesutmujde.instakotlinapp.home.activity.HomeActivity
 import com.ismailmesutmujde.instakotlinapp.login.fragment.RegisterFragment
 import com.ismailmesutmujde.instakotlinapp.login.fragment.EnterPhoneCodeFragment
 import com.ismailmesutmujde.instakotlinapp.models.Users
@@ -29,7 +32,10 @@ class RegisterActivity : AppCompatActivity(), FragmentManager.OnBackStackChanged
     private lateinit var bindingRA: ActivityRegisterBinding
 
     lateinit var fm : FragmentManager
+    lateinit var mAuth: FirebaseAuth
     lateinit var mDataRef : DatabaseReference
+    lateinit var mAuthListener : FirebaseAuth.AuthStateListener
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +43,8 @@ class RegisterActivity : AppCompatActivity(), FragmentManager.OnBackStackChanged
         bindingRA = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(bindingRA.root)
 
+        setupAuthListener()
+        mAuth = FirebaseAuth.getInstance()
         mDataRef = FirebaseDatabase.getInstance().reference
 
         fm = supportFragmentManager
@@ -46,6 +54,14 @@ class RegisterActivity : AppCompatActivity(), FragmentManager.OnBackStackChanged
     }
 
     private fun init() {
+
+        bindingRA.tvLogIn.setOnClickListener {
+            var intent = Intent(this@RegisterActivity, LoginActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
+            finish()
+        }
+
+
         // Textview'lerin Tıklanma Olayı
         bindingRA.tvEmail.setOnClickListener {
             bindingRA.viewShadowPhone.visibility = View.INVISIBLE
@@ -211,9 +227,34 @@ class RegisterActivity : AppCompatActivity(), FragmentManager.OnBackStackChanged
         return android.util.Patterns.PHONE.matcher(toCheckPhone).matches()
     }
 
-    /*
-    override fun onBackPressed() {
-        bindingRegisterActivity.loginRoot.visibility = View.VISIBLE
-        super.onBackPressed()
-    }*/
+    private fun setupAuthListener() {
+
+        mAuthListener = object : FirebaseAuth.AuthStateListener{
+            override fun onAuthStateChanged(p0: FirebaseAuth) {
+                var user = FirebaseAuth.getInstance().currentUser
+                if (user != null) {
+                    var intent = Intent(this@RegisterActivity, HomeActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                    startActivity(intent)
+                    finish()
+                } else {
+
+                }
+            }
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        mAuth.addAuthStateListener(mAuthListener)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if(mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener)
+        }
+
+    }
+
+
 }

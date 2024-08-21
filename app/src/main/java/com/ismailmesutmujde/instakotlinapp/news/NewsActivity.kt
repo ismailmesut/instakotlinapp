@@ -21,9 +21,9 @@ class NewsActivity : AppCompatActivity() {
 
     }
     private fun setupNavigationView() {
-        BottomNavigationViewHelper.setupBottomNavigationView(bindingNA.bottomNavigationView)
-        BottomNavigationViewHelper.setupNavigation(this, bindingNA.bottomNavigationView)
-        var menu = bindingNA.bottomNavigationView.menu
+        BottomNavigationViewHelper.setupBottomNavigationView(bindingNA.bnvNews)
+        BottomNavigationViewHelper.setupNavigation(this, bindingNA.bnvNews)
+        var menu = bindingNA.bnvNews.menu
         var menuItem=menu.getItem(ACTIVITY_NO)
         menuItem.setChecked(true)
     }

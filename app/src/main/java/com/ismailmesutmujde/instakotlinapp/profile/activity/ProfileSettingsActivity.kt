@@ -30,9 +30,9 @@ class ProfileSettingsActivity : AppCompatActivity() {
 
 
     private fun setupNavigationView() {
-        BottomNavigationViewHelper.setupBottomNavigationView(bindingPSA.bottomNavigationView)
-        BottomNavigationViewHelper.setupNavigation(this, bindingPSA.bottomNavigationView)
-        var menu = bindingPSA.bottomNavigationView.menu
+        BottomNavigationViewHelper.setupBottomNavigationView(bindingPSA.bnvProfileSettings)
+        BottomNavigationViewHelper.setupNavigation(this, bindingPSA.bnvProfileSettings)
+        var menu = bindingPSA.bnvProfileSettings.menu
         var menuItem=menu.getItem(ACTIVITY_NO)
         menuItem.setChecked(true)
     }
@@ -53,11 +53,8 @@ class ProfileSettingsActivity : AppCompatActivity() {
         }
 
         bindingPSA.tvSignOut.setOnClickListener {
-            bindingPSA.profileSettingsRoot.visibility = View.GONE
-            var transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.profileSettingsContainer, SignOutFragment())
-            transaction.addToBackStack("signOutFragment added.")
-            transaction.commit()
+            var dialog = SignOutFragment()
+            dialog.show(supportFragmentManager,"SignOutDialogShow")
         }
     }
 

@@ -190,11 +190,12 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="Ekinler baş vermeden kör buzağı topallamaz!!!"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvProfileRealName" />
 
         <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
-            android:id="@+id/bottomNavigationView"
+            android:id="@+id/bnvProfile"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/white"
@@ -210,7 +211,7 @@
             android:layout_height="2dp"
             android:layout_marginTop="600dp"
             android:background="@color/toolbarBottomShadow"
-            app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+            app:layout_constraintBottom_toTopOf="@+id/bnvNews"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -227,6 +228,18 @@
             app:layout_constraintHorizontal_bias="0.479"
             app:layout_constraintStart_toStartOf="@+id/circleProfileImage"
             app:layout_constraintTop_toTopOf="@+id/circleProfileImage" />
+
+        <TextView
+            android:id="@+id/tvWebSite"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="web_site"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/tvBiography"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvBiography" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.ismailmesutmujde.instakotlinapp.login.fragment
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -24,6 +25,8 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.ismailmesutmujde.instakotlinapp.R
 import com.ismailmesutmujde.instakotlinapp.databinding.FragmentRegisterBinding
+import com.ismailmesutmujde.instakotlinapp.login.activity.LoginActivity
+import com.ismailmesutmujde.instakotlinapp.models.UserDetails
 import com.ismailmesutmujde.instakotlinapp.models.Users
 import com.ismailmesutmujde.instakotlinapp.utils.EventbusDataEvents
 import org.greenrobot.eventbus.EventBus
@@ -50,9 +53,13 @@ class RegisterFragment : Fragment() {
         progressBar = bindingRF.pbRegisterUser
 
         mAuth = FirebaseAuth.getInstance()
-        if (mAuth.currentUser != null) {
-            mAuth.signOut()
+
+        bindingRF.tvLogIn.setOnClickListener {
+            var intent = Intent(activity, LoginActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
         }
+
+
         mDataRef = FirebaseDatabase.getInstance().reference
 
         bindingRF.etNameSurname.addTextChangedListener(watcher)
@@ -93,7 +100,8 @@ class RegisterFragment : Fragment() {
                                                 Toast.makeText(activity, "Login Successful with E-mail. Uid: "+mAuth.currentUser!!.uid, Toast.LENGTH_SHORT).show()
                                                 // oturum açan kullanıcının verilerini database kaydedelim.
                                                 var userID = mAuth.currentUser!!.uid.toString()
-                                                var registeredUser = Users(incomingEmail, password, userID, userName,nameSurname,"","")
+                                                var registeredUserDetails = UserDetails("0","0","0","","","")
+                                                var registeredUser = Users(incomingEmail, password, userID, userName,nameSurname,"","", registeredUserDetails)
                                                 mDataRef.child("users").child(userID).setValue(registeredUser).addOnCompleteListener(
                                                     object:OnCompleteListener<Void> {
                                                         override fun onComplete(p0: Task<Void>) {
@@ -137,7 +145,8 @@ class RegisterFragment : Fragment() {
                                                 Toast.makeText(activity, "Login Successful with Phone No. Uid: "+mAuth.currentUser!!.uid, Toast.LENGTH_SHORT).show()
                                                 // oturum açan kullanıcının verilerini database kaydedelim.
                                                 var userID = mAuth.currentUser!!.uid.toString()
-                                                var registeredUser = Users("", password, userID, userName,nameSurname, phoneNo, fakeEmail)
+                                                var registeredUserDetails = UserDetails("0","0","0","","","")
+                                                var registeredUser = Users("", password, userID, userName,nameSurname, phoneNo, fakeEmail,registeredUserDetails)
                                                 mDataRef.child("users").child(userID).setValue(registeredUser).addOnCompleteListener(
                                                     object:OnCompleteListener<Void> {
                                                         override fun onComplete(p0: Task<Void>) {
@@ -216,7 +225,7 @@ class RegisterFragment : Fragment() {
 
     }
 
-    @Subscribe
+    @Subscribe(sticky = true)
     internal fun onRegisterInformationEvent(RegisterInformation : EventbusDataEvents.SendRegisterInformation) {
 
         if (RegisterInformation.registerEmail == true) {

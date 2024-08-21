@@ -152,7 +152,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvDeleteSearchHistory" />
 
         <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
-            android:id="@+id/bottomNavigationView"
+            android:id="@+id/bnvProfileSettings"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/white"
